@@ -40,7 +40,7 @@
 			<ul class="box2_1" id="ul2">
                 {%for user in page%}
 				<li>
-					<a href="/detail/{{user.id}}/" target="_blank"><img src="/static/images/55555.jpg" width="100%" height="100%" alt="?"></a>
+					<a href="/detail/{{user.id}}/" target="_blank"><img src="/static/media/{{user.face_image}}" width="100%" height="100%" alt="?"></a>
 					<p>{{user.uname}}</p>
 				</li>
 				{%endfor%}

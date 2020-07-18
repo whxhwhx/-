@@ -30,7 +30,6 @@
 			$('.vtemp').each(function(){
 			    if($(this).html() > 37.3){
 			        $(this).css('color','red');
-			        $(this).siblings().css('color', 'red');
 			    }
 			});
 		})

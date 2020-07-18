@@ -3,6 +3,8 @@ from django.http import *
 import login_decorator
 from models import *
 from django.core.paginator import *
+from django.core.files import File
+from io import BytesIO
 
 
 def index(request):
@@ -65,3 +67,20 @@ def detail(request, uid):
     context = {'user': user, 'visit_list': visit_list}
     print(visit_list)
     return render(request, 'detail.html', context)
+
+
+def upload_img(request):
+    '''
+    item = request.FILES.get('img')
+    with open(str("/home/whx/" + item.name), 'wb') as f:
+        for c in item.chunks():
+            f.write(c)
+    '''
+    post = request.POST
+    user = user_info()
+    user.uname = post.get('uname')
+    user.uphone = post.get('uphone')
+    user.is_delete = False
+    user.face_image = request.FILES.get('img')
+    user.save()
+    return HttpResponse('ok')
