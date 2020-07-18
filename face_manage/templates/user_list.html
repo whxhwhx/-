@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="/static/css/home_css.css">
+			
+			<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>人体测温系统</title>
+			<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
+			<script type="text/javascript" src="/static/js/home_js.js"></script
+	</head>
+	<body>
+		<div class="box">
+			<div class="div1">WELCOME TO OUR WEBSITE</div>
+			<div class="div2">
+				<ul class="ul1">
+					<li><a href="/index/">Home</a></li>
+					<li class="line">|</li>
+					<li><a href="/user_list/1/">user list</a></li>
+					<li class="line">|</li>
+					<li><a href="/visitor_list/">visitor list</a></li>
+				</ul>
+				<div class="a0"><a href="">I'm Iron man</a></div>
+				{%if request.session.username|default:'' != ''%}
+                <div class="line11">
+				欢迎您：<em>{{request.session.username}}</em> <span> &nbsp;&nbsp;&nbsp;&nbsp;| </span>
+				</div>
+				<a class="logout" href="/logout/">退出</a>
+				{%else%}
+				<a class="line1" id="two" href="/login/">log in</a>
+				{%endif%}
+			</div>
+			<div class="div3">THANKS WATCHING</div>
+		</div>
+		<div class="box2" id="box_2">
+			<div class="box2_0">
+				<p>IMFORMATION</p>
+			</div>
+			<ul class="box2_1" id="ul2">
+                {%for user in page%}
+				<li>
+					<a href="/detail/{{user.id}}/" target="_blank"><img src="/static/images/55555.jpg" width="100%" height="100%" alt="?"></a>
+					<p>{{user.uname}}</p>
+				</li>
+				{%endfor%}
+			</ul>
+			<ul class="box2_2">
+				{%if page.has_previous%}
+				<li><a href="/user_list/{{page.previous_page_number}}/">上一页</a></li>
+				{%endif%}
+
+				{%for pindex in paginator.page_range%}
+				{%if pindex == page.number%}
+				<li><a href="#" class="active">{{pindex}}</a></li>
+				{%else%}
+				<li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
+				{%endif%}
+				{%endfor%}
+
+				{%if page.has_next%}
+				<li><a href="/user_list/{{page.next_page_number}}/">下一页</a></li>
+				{%endif%}
+			</ul>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="/static/css/login_css.css">
+<title>人脸识别系统—login</title>
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript" src="/static/js/login_js.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			if({{error_name}} == 1){
+				$('.tips1').show()
+			}
+			if({{error_pwd}} == 1){
+				$('.tips2').show()
+			}
+		})
+	</script>
+</head>
+
+<body>
+	<div class="box">
+		<form action="/login_handle/" method="post">
+			{%csrf_token%}
+			<div class="denglu">登录</div>
+			<div class="zhanghao">账号</div>
+			<input id="id1" class="username" type="text" name="username" value="{{uname}}" maxlength="28" placeholder="请输入你的账号" value="">
+			<div class="tips1" id="tis1" style="display: none" >用户名错误!</div>
+			<div class="mima">密码</div>
+			<input id="word1" class="userword" type="password" name="pwd" value="{{upwd}}" maxlength="28" placeholder="请输入你的密码" value="">
+			<div class="tips2" id="tis2" style="display: none" >密码不正确!</div>
+			<input type="submit" value="登录" class="btn1">
+		</form>
+<!--		<a href="https://baidu.com" class="btn2">退出</a>-->
+		<p class="plist">本页面系统所有权归广西大学光电比赛参赛队所有</p>
+	</div>
+</body>
+</html>

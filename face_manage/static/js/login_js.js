@@ -1,0 +1,19 @@
+$(function(){
+    $('.username').click(function(){
+        $('.username').css({borderBottomColor:'blue',color:'black'});
+    })
+    $('.username').blur(function(){
+        $('.username').css({borderBottomColor:'gray'});
+    })
+    $('.userword').click(function(){
+        $('.userword').css({borderBottomColor:'blue',color:'black'});
+    })
+    $('.userword').blur(function(){
+        $('.userword').css({borderBottomColor:'gray'});
+    })
+    $('.btn1').hover(function(){
+        $('.btn1').css({backgroundColor: '#0D7DD9'});
+    },function(){
+        $('.btn1').css({backgroundColor:'#2D8CF0'});
+    })
+})

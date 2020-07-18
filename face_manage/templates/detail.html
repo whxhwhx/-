@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>个人详细信息</title>
+	<link rel="stylesheet" type="text/css" href="/static/css/info_css.css">
+	<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.temp').each(function(){
+				if($(this).html() > 37.3){
+					$(this).css('color','red');
+					$(this).next().css('color','red');
+				};
+			})
+
+		})
+	</script>
+</head>
+<body>
+	<div class="box1">
+		<div class="box1_1">
+			<ul class="box1_1_1">
+				<li>UID:</li>
+				<li>Name:</li>
+				<li>Telephone:</li>
+			</ul>
+			<ul class="box1_1_2">
+				<li>{{user.id}}</li>
+				<li>{{user.uname}}</li>
+				<li>{{user.uphone}}</li>
+			</ul>
+		</div>
+		<div class="box1_2">
+			<img src="/static/images/55555.jpg" width="100%" height="100%" alt="?">
+		</div>
+		<div class="box1_3" style="overflow: auto">
+			<ul class="box1_3_1">
+				<li>Tempture(°C)</li>
+				<li>visittime</li>
+			</ul>
+			<ul class="box1_3_2">
+                {%for li in visit_list%}
+				<li class="temp">{{li.vtemp}}</li>
+				<li>{{li.vtime}}</li>
+				{%endfor%}
+			</ul>
+		</div>
+		<div class="box1_4">
+			<a href="home.html">返回</a>
+		</div>
+	</div>
+	<img class="gif" src="/static/images/miao.gif" alt="?" width="100%" height="100%">
+</body>
+</html>
