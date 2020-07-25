@@ -10,5 +10,8 @@ urlpatterns = [
     url(r'visitor_list/', views.visitor_list),
     url(r'logout', views.logout),
     url(r'detail/(\d+)/', views.detail),
-    url(r'upload_img', views.upload_img)
+    url(r'upload_img', views.upload_img),
+    url(r'^about/', views.about),
+    url(r'^contact/', views.contact),
+
 ]
