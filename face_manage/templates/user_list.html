@@ -38,7 +38,7 @@
 									<!--<td><input type="checkbox"></td>-->
 									<td>{{user.id}}</td>
 									<td>
-										<a href="#">{{user.uname}}</a>
+										<a href="/detail/{{user.id}}/">{{user.uname}}</a>
 									</td>
 									<td>{{user.uphone}}</td>
 									<!--<td class="am-hide-sm-only">36.8</td>
@@ -58,7 +58,7 @@
 						</table>
 						<div class="am-cf">
 							<div class="am-fr">
-								<ul ss="am-pagination">
+								<ul class="am-pagination">
 									{%if page.has_previous%}
 									<li>
 										<a href="/user_list/{{page.previous_page_number}}/">«</a>
@@ -82,7 +82,7 @@
 										<a href="/user_list/{{page.next_page_number}}/">»</a>
 									</li>
 									{%else%}
-									<li class="am-disabled">
+									<li >
 										<a href="#">»</a>
 									</li>
 									{%endif%}

@@ -57,7 +57,7 @@ def login_handle(request):
 @login_decorator.login
 def dangerous_list(request, pindex):
     dangerous_info_list = visitor_info.objects.filter(vtemp__gt=37.3).order_by('-vtime')
-    paginator = Paginator(dangerous_info_list, 10)
+    paginator = Paginator(dangerous_info_list, 20)
     page = paginator.page(pindex)
     context = {'page': page, 'paginator': paginator}
 
@@ -67,7 +67,7 @@ def dangerous_list(request, pindex):
 @login_decorator.login
 def user_list(request, pindex):
     user_info_list = user_info.objects.filter(is_delete=False)
-    paginator = Paginator(user_info_list, 10)
+    paginator = Paginator(user_info_list, 20)
     page = paginator.page(pindex)
     context = {'page': page, 'paginator': paginator}
     return render(request, 'user_list.html', context)
@@ -76,7 +76,7 @@ def user_list(request, pindex):
 @login_decorator.login
 def visitor_list(request, pindex):
     visitor_info_list = visitor_info.objects.all().order_by('-vtime')
-    paginator = Paginator(visitor_info_list, 10)
+    paginator = Paginator(visitor_info_list, 20)
     page = paginator.page(pindex)
     context = {'page': page, 'paginator': paginator}
 
@@ -84,13 +84,10 @@ def visitor_list(request, pindex):
 
 
 def detail(request, uid):
-    print('uid = ', uid)
     user = user_info.objects.get(pk=int(uid))
-    print(user)
     visit_list = user.visitor_info_set.all()
     context = {'user': user, 'visit_list': visit_list}
-    print(visit_list)
-    return render(request, 'detail.html', context)
+    return render(request, 'detail_info.html', context)
 
 
 def upload_img(request):
