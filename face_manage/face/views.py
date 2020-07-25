@@ -55,8 +55,13 @@ def login_handle(request):
 
 
 @login_decorator.login
-def dangerous_list(request):
-    return render(request, 'dangerous_list.html')
+def dangerous_list(request, pindex):
+    dangerous_info_list = visitor_info.objects.filter(vtemp__gt=37.3).order_by('-vtime')
+    paginator = Paginator(dangerous_info_list, 10)
+    page = paginator.page(pindex)
+    context = {'page': page, 'paginator': paginator}
+
+    return render(request, 'dangerous_list.html', context)
 
 
 @login_decorator.login
@@ -69,11 +74,12 @@ def user_list(request, pindex):
 
 
 @login_decorator.login
-def visitor_list(request):
+def visitor_list(request, pindex):
     visitor_info_list = visitor_info.objects.all().order_by('-vtime')
-    dangerous_list = visitor_info.objects.filter(vtemp__gt=37.3).order_by('-vtime')
+    paginator = Paginator(visitor_info_list, 10)
+    page = paginator.page(pindex)
+    context = {'page': page, 'paginator': paginator}
 
-    context = {'list': visitor_info_list, 'dlist': dangerous_list}
     return render(request, 'visitor_list.html', context)
 
 

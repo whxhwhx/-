@@ -63,6 +63,10 @@
 									<li class="am-disabled">
 										<a href="/user_list/{{page.previous_page_number}}/">«</a>
 									</li>
+									{%else%}
+									<li class="am-disabled">
+										<a href="#">«</a>
+									</li>
 									{%endif%}
 									{%for pindex in paginator.page_range%}
 
@@ -72,10 +76,14 @@
 									<li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
 									{%endif%}
 									{%endfor%}
-									
+
 									{%if page.has_next%}
 									<li>
 										<a href="/user_list/{{page.next_page_number}}/">»</a>
+									</li>
+									{%else%}
+									<li>
+										<a href="#">»</a>
 									</li>
 									{%endif%}
 								</ul>
