@@ -35,7 +35,7 @@
               <tr>
                 <!--<td><input type="checkbox"></td>-->
                 <td>1</td>
-                <td><a href="#">{{li.vuser.uname}}</a></td>
+		<td><a href="/detail/{{li.vuser.id}}/">{{li.vuser.uname}}</a></td>
                 <td>{{li.vuser.uphone}}</td>
                 <td class="am-hide-sm-only">{{li.vtemp}}</td>
                 <td class="am-hide-sm-only">{{li.vtime}}</td>
@@ -51,7 +51,6 @@
               </tbody>
             </table>
             <div class="am-cf">
-              共 15 条记录
               <div class="am-fr">
                 <ul class="am-pagination">
                     {%if page.has_previous%}
