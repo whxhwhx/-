@@ -16,26 +16,7 @@
 
 			<hr>
 
-			<!--<div class="am-g">
-				<div class="am-u-sm-12 am-u-md-6">
-					<div class="am-btn-toolbar">
-						<div class="am-btn-group am-btn-group-xs">
-							<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
-						</div>
-					</div>
-				</div>
-				<div class="am-u-sm-12 am-u-md-3">
 
-				</div>
-				<div class="am-u-sm-12 am-u-md-3">
-					<div class="am-input-group am-input-group-sm">
-						<input type="text" class="am-form-field" placeholder="请输入新闻标题">
-						<span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
-					</div>
-				</div>
-			</div>-->
 			<div class="am-g">
 				<div class="am-u-sm-12">
 					<form class="am-form">
@@ -52,13 +33,14 @@
 								</tr>
 							</thead>
 							<tbody>
+                            	{%for user in page%}
 								<tr>
 									<!--<td><input type="checkbox"></td>-->
-									<td>1</td>
+									<td>{{user.id}}</td>
 									<td>
-										<a href="#">黄祖杰</a>
+										<a href="#">{{user.uname}}</a>
 									</td>
-									<td>13672626943</td>
+									<td>{{user.uphone}}</td>
 									<!--<td class="am-hide-sm-only">36.8</td>
 									<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>-->
 									<td>
@@ -70,34 +52,32 @@
 										</div>
 									</td>
 								</tr>
+								{%endfor%}
 								
 							</tbody>
 						</table>
 						<div class="am-cf">
-							共 15 条记录
 							<div class="am-fr">
 								<ul class="am-pagination">
+									{%if page.has_previous%}
 									<li class="am-disabled">
-										<a href="#">«</a>
+										<a href="/user_list/{{page.previous_page_number}}/">«</a>
 									</li>
-									<li class="am-active">
-										<a href="#">1</a>
-									</li>
+									{%endif%}
+									{%for pindex in paginator.page_range%}
+
+									{%if pindex == page.number%}
+									<li><a href="#" class="active">{{pindex}}</a></li>
+									{%else%}
+									<li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
+									{%endif%}
+									{%endfor%}
+									
+									{%if page.has_next%}
 									<li>
-										<a href="#">2</a>
+										<a href="/user_list/{{page.next_page_number}}/">»</a>
 									</li>
-									<li>
-										<a href="#">3</a>
-									</li>
-									<li>
-										<a href="#">4</a>
-									</li>
-									<li>
-										<a href="#">5</a>
-									</li>
-									<li>
-										<a href="#">»</a>
-									</li>
+									{%endif%}
 								</ul>
 							</div>
 						</div>
