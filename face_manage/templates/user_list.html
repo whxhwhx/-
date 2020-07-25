@@ -58,9 +58,9 @@
 						</table>
 						<div class="am-cf">
 							<div class="am-fr">
-								<ul class="am-pagination">
+								<ul ss="am-pagination">
 									{%if page.has_previous%}
-									<li class="am-disabled">
+									<li>
 										<a href="/user_list/{{page.previous_page_number}}/">«</a>
 									</li>
 									{%else%}
@@ -82,7 +82,7 @@
 										<a href="/user_list/{{page.next_page_number}}/">»</a>
 									</li>
 									{%else%}
-									<li>
+									<li class="am-disabled">
 										<a href="#">»</a>
 									</li>
 									{%endif%}
