@@ -29,13 +29,14 @@
               </tr>
               </thead>
               <tbody>
+              {%for li in page%}
               <tr>
                 <!--<td><input type="checkbox"></td>-->
                 <td>1</td>
-                <td><a href="#">黄祖杰</a></td>
-                <td>13672626943</td>
-                <td class="am-hide-sm-only">36.8</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                <td><a href="#">{{li.vuser.uname}}</a></td>
+                <td>{{li.vuser.uphone}}</td>
+                <td class="am-hide-sm-only">{{li.vtemp}}</td>
+                <td class="am-hide-sm-only">{{li.vtime}}</td>
                 <td>
                   <div class="am-btn-toolbar">
                     <div class="am-btn-group am-btn-group-xs">
@@ -44,215 +45,41 @@
                   </div>
                 </td>
               </tr>
-              <!--<tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <td><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="#">这个模板很不错</a></td>
-                <td>真的很不错哎</td>
-                <td class="am-hide-sm-only">管理员</td>
-                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
-                <td>
-                  <div class="am-btn-toolbar">
-                    <div class="am-btn-group am-btn-group-xs">
-                      <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>
-                    </div>
-                  </div>
-                </td>
-              </tr>-->
+              {%endfor%}
               </tbody>
             </table>
             <div class="am-cf">
-              共 15 条记录
               <div class="am-fr">
-                <ul class="am-pagination">
-                  <li class="am-disabled"><a href="#">«</a></li>
-                  <li class="am-active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li><a href="#">»</a></li>
+                  <ul class="am-pagination">
+                    {%if page.has_previous%}
+                    <li class="am-disabled">
+                        <a href="/user_list/{{page.previous_page_number}}/">«</a>
+                    </li>
+                    {%else%}
+                    <li class="am-disabled">
+                        <a href="#">«</a>
+                    </li>
+                    {%endif%}
+                    {%for pindex in paginator.page_range%}
+
+                    {%if pindex == page.number%}
+                    <li><a href="#" class="active">{{pindex}}</a></li>
+                    {%else%}
+                    <li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
+                    {%endif%}
+                    {%endfor%}
+
+                    {%if page.has_next%}
+                    <li>
+                        <a href="/user_list/{{page.next_page_number}}/">»</a>
+                    </li>
+                    {%else%}
+                    <li>
+                        <a href="#">»</a>
+                    </li>
+                    {%endif%}
                 </ul>
+
               </div>
             </div>
             <hr>
