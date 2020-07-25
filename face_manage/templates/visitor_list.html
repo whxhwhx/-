@@ -1,83 +1,73 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/static/css/home_css.css">
-			
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>人体测温系统</title>
-			<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
-			<script type="text/javascript" src="/static/js/home_js.js"></script>
+		<link rel="stylesheet" href="/static/css/amazeui.min_dangerous.css" />
+		 <link rel="stylesheet" href="/static/css/admin.css" />
 	</head>
 	<body>
-		<div class="box">
-			<div class="div1">WELCOME TO OUR WEBSITE</div>
-			<div class="div2">
-				<ul class="ul1">
-					<li><a href="/">Home</a></li>
-					<li class="line">|</li>
-					<li><a href="/user_list/1/">user list</a></li>
-					<li class="line">|</li>
-					<li><a href="/visitor_list/">visitor list</a></li>
-				</ul>
-				<div class="a0"><a href="">I'm Iron man</a></div>
-				{%if request.session.username|default:'' != ''%}
-                <div class="line11">
-				欢迎您：<em>{{request.session.username}}</em> <span> &nbsp;&nbsp;&nbsp;&nbsp;| </span>
-				</div>
-				<a class="logout" href="/logout/">退出</a>
-				{%else%}
-				<a class="line1" id="two" href="/login/">log in</a>
-				{%endif%}
-			</div>
-			<div class="div3">THANKS WATCHING</div>
-		</div>
-		<div class="box3" id="box_3">
-			<div class="box3_0">
-				<div class="box3_0_1">Visitors List</div>
-				<div class="box3_0_2">Dangerous List</div>
-			</div>
-			<div class="box3_1">
-				<div class="box3_1_1" style="overflow: auto">
-				<ul class="ul2">
-					<li class="u13_1">UID</li>
-					<li class="u13_2">Name</li>
-					<li class="u13_3">Telephone</li>
-					<li class="u13_4">Tempture(°C)</li>
-					<li class="u13_5">Visit'time</li>
-				</ul>
-				<ul class="ul3">
-                    {%for li in list%}
-					<div>
-					<li class="u13_1">{{li.id}}</li>
-					<li class="u13_2"><a href="/detail/{{li.vuser.id}}/">{{li.vuser.uname}}</a></li>
-					<li class="u13_3">{{li.vuser.uphone}}</li>
-					<li class="u13_4 vtemp">{{li.vtemp}}</li>
-					<li class="u13_5">{{li.vtime}}</li>
-					</div>>
-					{%endfor%}
-				</ul>
-			</div>
-				<div class="box3_1_2" style="overflow: auto">
-				<ul class="ul2">
-					<li class="u13_1">UID</li>
-					<li class="u13_2">Name</li>
-					<li class="u13_3">Telephone</li>
-					<li class="u13_4">Tempture(°C)</li>
-					<li class="u13_5">Visit'time</li>
-				</ul>
-				<ul class="ul3">
-                    {%for li in dlist%}
-                    <li class="u13_1">{{li.id}}</li>
-					<li class="u13_2"><a href="#">{{li.vuser.uname}}</a></li>
-					<li class="u13_3">{{li.vuser.uphone}}</li>
-					<li class="u13_4">{{li.vtemp}}</li>
-					<li class="u13_5">{{li.vtime}}</li>
-					{%endfor%}
-				</ul>
-			</div>
-			</div>
-		</div>
+		<div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">访客体温信息</strong><small></small></div>
+      </div>
+
+      <hr>
+
+     
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                  <!--<th class="table-check"><input type="checkbox"></th>-->
+                  <th class="table-id">UID</th>
+                  <th class="table-title">Name</th>
+                  <th class="table-type">Telephone</th>
+                  <th class="table-author am-hide-sm-only">Tempture(°C)</th>
+                  <th class="table-date am-hide-sm-only">Visit Times</th>
+                  <!--<th class="table-set">操作</th>-->
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <!--<td><input type="checkbox"></td>-->
+                <td>1</td>
+                <td><a href="#">黄祖杰</a></td>
+                <td>13672626943</td>
+                <td class="am-hide-sm-only">36.8</td>
+                <td class="am-hide-sm-only">2014年9月4日 7:28:47</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+                      <!--<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>-->
+                    </div>
+                  </div>
+                </td>
+              </tr>
+              
+              </tbody>
+            </table>
+            <div class="am-cf">
+              共 15 条记录
+              <div class="am-fr">
+                <ul class="am-pagination">
+                  <li class="am-disabled"><a href="#">«</a></li>
+                  <li class="am-active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li><a href="#">»</a></li>
+                </ul>
+              </div>
+            </div>
+            <hr>
+          </form>
+        </div>
+
+      </div>
+    </div>
 	</body>
 </html>

@@ -19,6 +19,11 @@ def about(request):
     return render(request,  'about.html')
 
 
+@login_decorator.login
+def console_index(request):
+    return render(request, 'console_index.html')
+
+
 def logout(request):
     request.session.flush()
     return redirect('/')
@@ -47,6 +52,11 @@ def login_handle(request):
     else:
         context = {'error_name': 1, 'error_pwd': 0, 'uname': uname, 'upwd': upwd}
         return render(request, 'login.html', context)
+
+
+@login_decorator.login
+def dangerous_list(request):
+    return render(request, 'dangerous_list.html')
 
 
 @login_decorator.login

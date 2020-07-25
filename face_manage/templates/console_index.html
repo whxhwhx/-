@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<title>用户管理系统</title>
+		<link rel="stylesheet" href="/static/css/layui.css">
+	</head>
+
+	<body class="layui-layout-body">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">用户信息</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item">
+						<a href="javascript:;">
+							<img src="/static/images/miao.gif" class="layui-nav-img" width="30px" height="30px"> 管理员
+						</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="#">THANKS</a>
+							</dd>
+							<dd>
+								<a href="#">WATCHING</a>
+							</dd>
+						</dl>
+					</li>
+					<li class="layui-nav-item">
+						<a href="">退出</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed">
+							<a class="aaa" href="javascript:;">用户栏</a>
+							<dl class="layui-nav-child">
+								<!--<dd>
+									<a href="newsType.html" target="right">新闻分类管理</a>
+								</dd>-->
+								<dd>
+									<a href="/user_list/1/" target="right">User list</a>
+								</dd>
+								<!--<dd>
+									<a href="link.html" target="right">友情链接</a>
+								</dd>-->
+								<dd>
+									<a href="/visitor_list/" target="right">Visitor list</a>
+								</dd>
+								<dd>
+									<a href="/dangerous_list/" target="right">Dangerous List</a>
+								</dd>
+<!--
+								<dd>
+									<a href="javascript:void(0)"  onclick="updatePwd('修改密码',1)">修改密码</a>
+								</dd>
+-->
+							</dl>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+
+
+			<div class="layui-body" style="z-index: 0;"> 
+				<div style="padding: 15px;">
+					<iframe src="/user_list/1/" name="right" frameborder="0" width="100%" height="1200"></iframe>
+				</div>
+			</div>
+
+
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="/static/js/jquery-1.11.3.min.js"></script>
+		<script type="text/javascript" src="/static/myplugs/js/plugs.js">
+		</script>
+		<script type="text/javascript">
+			//添加编辑弹出层
+			function updatePwd(title, id) {
+				$.jq_Panel({
+					title: title,
+					iframeWidth: 500,
+					iframeHeight: 300,
+					url: "updatePwd.html"
+				});
+			}
+		</script>
+		<script src="/static/js/layui.js"></script>
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+
+			});
+		</script>
+	</body>
+
+</html>

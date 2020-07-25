@@ -1,67 +1,110 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" type="text/css" href="/static/css/home_css.css">
-			
-			<meta name="viewport" content="width=device-width, initial-scale=1"/>
-		<title>人体测温系统</title>
-			<script type="text/javascript" src="/static/js/jquery-1.12.4.js"></script>
-			<script type="text/javascript" src="/static/js/home_js.js"></script
+		<link rel="stylesheet" href="/static/css/amazeui.min.css" />
+		<link rel="stylesheet" href="/static/css/admin.css"/>
 	</head>
+
 	<body>
-		<div class="box">
-			<div class="div1">WELCOME TO OUR WEBSITE</div>
-			<div class="div2">
-				<ul class="ul1">
-					<li><a href="/">Home</a></li>
-					<li class="line">|</li>
-					<li><a href="/user_list/1/">user list</a></li>
-					<li class="line">|</li>
-					<li><a href="/visitor_list/">visitor list</a></li>
-				</ul>
-				<div class="a0"><a href="">I'm Iron man</a></div>
-				{%if request.session.username|default:'' != ''%}
-                <div class="line11">
-				欢迎您：<em>{{request.session.username}}</em> <span> &nbsp;&nbsp;&nbsp;&nbsp;| </span>
+		<div class="admin-content-body">
+			<div class="am-cf am-padding am-padding-bottom-0">
+				<div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">用户统计信息</strong><small></small></div>
+			</div>
+
+			<hr>
+
+			<!--<div class="am-g">
+				<div class="am-u-sm-12 am-u-md-6">
+					<div class="am-btn-toolbar">
+						<div class="am-btn-group am-btn-group-xs">
+							<button type="button" class="am-btn am-btn-default"><span class="am-icon-plus"></span> 新增</button>
+						</div>
+					</div>
 				</div>
-				<a class="logout" href="/logout/">退出</a>
-				{%else%}
-				<a class="line1" id="two" href="/login/">log in</a>
-				{%endif%}
-			</div>
-			<div class="div3">THANKS WATCHING</div>
-		</div>
-		<div class="box2" id="box_2">
-			<div class="box2_0">
-				<p>IMFORMATION</p>
-			</div>
-			<ul class="box2_1" id="ul2">
-                {%for user in page%}
-				<li>
-					<a href="/detail/{{user.id}}/" target="_blank"><img src="/static/media/{{user.face_image}}" width="100%" height="100%" alt="?"></a>
-					<p>{{user.uname}}</p>
-				</li>
-				{%endfor%}
-			</ul>
-			<ul class="box2_2">
-				{%if page.has_previous%}
-				<li><a href="/user_list/{{page.previous_page_number}}/">上一页</a></li>
-				{%endif%}
+				<div class="am-u-sm-12 am-u-md-3">
 
-				{%for pindex in paginator.page_range%}
-				{%if pindex == page.number%}
-				<li><a href="#" class="active">{{pindex}}</a></li>
-				{%else%}
-				<li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
-				{%endif%}
-				{%endfor%}
-
-				{%if page.has_next%}
-				<li><a href="/user_list/{{page.next_page_number}}/">下一页</a></li>
-				{%endif%}
-			</ul>
+				</div>
+				<div class="am-u-sm-12 am-u-md-3">
+					<div class="am-input-group am-input-group-sm">
+						<input type="text" class="am-form-field" placeholder="请输入新闻标题">
+						<span class="am-input-group-btn">
+            <button class="am-btn am-btn-default" type="button">搜索</button>
+          </span>
+					</div>
+				</div>
+			</div>-->
+			<div class="am-g">
+				<div class="am-u-sm-12">
+					<form class="am-form">
+						<table class="am-table am-table-striped am-table-hover table-main">
+							<thead>
+								<tr>
+									<!--<th class="table-check"><input type="checkbox"></th>-->
+									<th class="table-id">UID</th>
+									<th class="table-title">Name</th>
+									<th class="table-type">Telephone</th>
+									<!--<th class="table-author am-hide-sm-only">Tempture(°C)</th>
+									<th class="table-date am-hide-sm-only">Visit Times</th>
+									<th class="table-set">操作</th>-->
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<!--<td><input type="checkbox"></td>-->
+									<td>1</td>
+									<td>
+										<a href="#">黄祖杰</a>
+									</td>
+									<td>13672626943</td>
+									<!--<td class="am-hide-sm-only">36.8</td>
+									<td class="am-hide-sm-only">2014年9月4日 7:28:47</td>-->
+									<td>
+										<div class="am-btn-toolbar">
+											<div class="am-btn-group am-btn-group-xs">
+												<!--<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 编辑</button>
+												<button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> 删除</button>-->
+											</div>
+										</div>
+									</td>
+								</tr>
+								
+							</tbody>
+						</table>
+						<div class="am-cf">
+							共 15 条记录
+							<div class="am-fr">
+								<ul class="am-pagination">
+									<li class="am-disabled">
+										<a href="#">«</a>
+									</li>
+									<li class="am-active">
+										<a href="#">1</a>
+									</li>
+									<li>
+										<a href="#">2</a>
+									</li>
+									<li>
+										<a href="#">3</a>
+									</li>
+									<li>
+										<a href="#">4</a>
+									</li>
+									<li>
+										<a href="#">5</a>
+									</li>
+									<li>
+										<a href="#">»</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<hr>
+					</form>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
