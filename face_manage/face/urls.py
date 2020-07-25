@@ -12,7 +12,7 @@ urlpatterns = [
     url(r'logout', views.logout),
     url(r'detail/(\d+)/', views.detail),
     url(r'upload_img', views.upload_img),
-    url(r'console_index/', views.console_index),
+    url(r'console/', views.console_index),
     url(r'^about/', views.about),
     url(r'^contact/', views.contact),
 
