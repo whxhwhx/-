@@ -55,8 +55,8 @@
               <div class="am-fr">
                 <ul class="am-pagination">
                     {%if page.has_previous%}
-                    <li class="am-disabled">
-                        <a href="/user_list/{{page.previous_page_number}}/">«</a>
+                    <li>
+                        <a href="/visitor_list/{{page.previous_page_number}}/">«</a>
                     </li>
                     {%else%}
                     <li class="am-disabled">
@@ -68,16 +68,16 @@
                     {%if pindex == page.number%}
                     <li><a href="#" class="active">{{pindex}}</a></li>
                     {%else%}
-                    <li><a href="/user_list/{{pindex}}/">{{pindex}}</a></li>
+                    <li><a href="/visitor_list/{{pindex}}/">{{pindex}}</a></li>
                     {%endif%}
                     {%endfor%}
 
                     {%if page.has_next%}
                     <li>
-                        <a href="/user_list/{{page.next_page_number}}/">»</a>
+                        <a href="/visitor_list/{{page.next_page_number}}/">»</a>
                     </li>
                     {%else%}
-                    <li>
+                    <li class="am-disabled">
                         <a href="#">»</a>
                     </li>
                     {%endif%}
