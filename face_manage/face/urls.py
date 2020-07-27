@@ -15,4 +15,6 @@ urlpatterns = [
     url(r'console/', views.console_index),
     url(r'^about/', views.about),
     url(r'^contact/', views.contact),
+    url(r'^temporary/', views.temporary_origin),
+    url(r'visit_handle/', views.visit_handle),
 ]

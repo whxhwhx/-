@@ -16,3 +16,11 @@ class visitor_info(models.Model):
     vtemp = models.FloatField()
     vtime = models.DateTimeField()
     vuser = models.ForeignKey(user_info)
+
+class temporary(models.Model):
+    tname = models.CharField(max_length=20)
+    tphone = models.CharField(max_length=11)
+    temail = models.CharField(max_length=30)
+    tkey = models.CharField(max_length=30)
+    is_delete = models.BooleanField(default=False)
+

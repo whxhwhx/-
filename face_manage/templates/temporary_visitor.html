@@ -10,7 +10,6 @@
 	<link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="/static/css/font-awesome.min.css"/>
 	<link rel="stylesheet" href="/static/css/slicknav.min.css"/>
-
 	<!-- Main Stylesheets -->
 	<link rel="stylesheet" href="/static/css/style.css"/>
 
@@ -44,7 +43,7 @@
 				</div>
 				<div class="col-sm-4 col-md-6 order-1  order-md-2 text-center">
 					<a href="./index.html" class="site-logo">
-						<a href="./index.html" class="site-logo">About Me</a>
+						<a href="./index.html" class="site-logo">temporary visitor</a>
 					</a>
 				</div>
 				<div class="col-sm-4 col-md-3 order-3 order-sm-3">
@@ -59,77 +58,47 @@
 			<nav class="main__menu">
 				<ul class="nav__menu">
 					<li><a href="/">Home</a></li>
-					<li><a href="/about/" class="menu--active">About</a></li>
-					<li><a href="/contact/">Contact</a></li>
-					<li><a href="/temporary/">Temporary Visitor</a></li>
+					<li><a href="/about/">About</a></li>
+					<li><a href="/contact/" >Contact</a></li>
+					<li><a href="#"class="menu--active">temporary visitor</a></li>
+					
 				</ul>
 			</nav>
 		</div>
 	</header>
 	<!-- Header Section end -->
 
-	<!-- About Page -->
-	<section class="about__page">
-		<div class="container-fluid">
+	<!-- Contact Page -->
+	<section class="contact__page">
+		<div class="contact__warp">
 			<div class="row">
-				<div class="col-lg-4">
-					<div class="about__text">
-						<h3 class="about__title">About Me</h3>
-						<div class="about__meta">
-							<img src="img/profile.jpg" alt="">
-							<div class="about__meta__info">
-								<h5>xxxxxxxxxxx</h5>
-								<p>xxxxx</p>
-							</div>
-						</div>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. Nemo enim ipsam voluptatem quiatotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat incididunt ut labore et dolore magna aliqua.</p>
-						<img src="/static/img/signature.png" alt="">
-					</div>
+				<div class="col-md-6">
+					<h3>visitor messge</h3>
+					<!-- <div class="contact__social">
+						<a href="#"><img src="img/contact/01.png" width="23px" height="23px"></a>
+						<a href="#"><img src="img/contact/02.png" width="23px" height="23px"></a>
+						<a href="#"><img src="img/contact/03.png" width="23px" height="23px"></a>
+						<a href="#"><img src="img/contact/04.png" width="23px" height="23px"></a>
+					</div> -->
 				</div>
-				<div class="col-lg-4">
-					<div class="experience__text">
-						<h3 class="about__title">Experience</h3>
-						<div class="experience__item">
-							<h4>理念来源</h4>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. Nemo enim ipsam voluptatem quiatotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-						</div>
-						<div class="experience__item">
-							<h4>设计方案</h4>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. Nemo enim ipsam voluptatem quiatotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-						</div>
-						<div class="experience__item">
-							<h4>产品效果</h4>
-							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. Nemo enim ipsam voluptatem quiatotam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4">
-					<div class="skills__text">
-						<h3 class="about__title">Skills</h3>
-						<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. Vivamus at nibh tincidunt, bibendum ligula id. </p>
-						<div class="single-progress-item">
-							<h6>Development</h6>
-							<div class="progress-bar-style" data-progress="85"></div>
-						</div>
-						<div class="single-progress-item">
-							<h6>APP Design</h6>
-							<div class="progress-bar-style" data-progress="80"></div>
-						</div>
-						<div class="single-progress-item">
-							<h6>Graphic Design</h6>
-							<div class="progress-bar-style" data-progress="90"></div>
-						</div>
-						<div class="single-progress-item">
-							<h6>Photography</h6>
-							<div class="progress-bar-style" data-progress="100"></div>
-						</div>
+				<div class="col-md-6">
+					<div class="contact__text">
+						<p>邮箱用来接收二维码，请确保信息准确无误！</p>
+						<p>Authorization Code : 授权码</p>
 					</div>
 				</div>
 			</div>
+			<form class="contact__form" action="/visit_handle/" method="post">
+				{%csrf_token%}
+				<input type="text" name='Name' value="{{name}}" placeholder="Name">
+				<input type="text" name='Email' value="{{email}}" placeholder="Email">
+				<input type="text" name='Phone' value="{{phone}}" placeholder="Phone">
+				<input type="text" name='Code' placeholder="Authorization Code">
+				<button class="site-btn">Send Message</button>
+			</form>
 		</div>
 	</section>
-	<!-- About Page end -->
+	<!-- Contact Page end -->
 
 	<!-- Footer Section -->
 	<footer class="footer__section">
@@ -159,6 +128,19 @@
 	<script src="/static/js/jquery.slicknav.min.js"></script>
 	<script src="/static/js/slick.min.js"></script>
 	<script src="/static/js/main.js"></script>
+	<script type="text/javascript">
+			$(function(){
+				if({{msg}} == 1){
+					alert('请在邮箱查收您的二维码！');
+				}
+				if({{msg}} == 2){
+					alert('出错了!');
+				}
+				if({{msg}} == 3){
+					alert('授权码不正确!');
+				}
 
+			})
+</script>
 	</body>
 </html>

@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Django settings for face_manage project.
 
@@ -111,3 +112,16 @@ STATICFILES_DIRS = [
 STATIC_ROOT = '/var/www/face/static/'
 
 MEDIA_ROOT = '/var/www/face/static/media/'
+
+# 设置邮件域名
+EMAIL_HOST = 'smtp.qq.com'
+# 设置端口号，为数字
+EMAIL_PORT = 465 
+# 设置发件人邮箱
+EMAIL_HOST_USER = '2479759633@qq.com'
+# 设置发件人 授权码
+EMAIL_HOST_PASSWORD = 'vdtzyvgapswddjha'
+# 设置是否启用安全链接
+# EMAIL_USER_TLS = True
+EMAIL_USE_TLS = False         # 发送的模式
+EMAIL_USE_SSL = True        # 加密模式
