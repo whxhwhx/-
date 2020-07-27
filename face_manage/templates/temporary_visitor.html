@@ -88,13 +88,12 @@
 					</div>
 				</div>
 			</div>
-			<form class="contact__form" action="/visit_handle/" method="post">
-				{%csrf_token%}
-				<input type="text" name='Name' value="{{name}}" placeholder="Name">
-				<input type="text" name='Email' value="{{email}}" placeholder="Email">
-				<input type="text" name='Phone' value="{{phone}}" placeholder="Phone">
+			<form class="contact__form" id = 'message'>
+				<input type="text" name='Name'  placeholder="Name">
+				<input type="text" name='Email' placeholder="Email">
+				<input type="text" name='Phone' placeholder="Phone">
 				<input type="text" name='Code' placeholder="Authorization Code">
-				<button class="site-btn">Send Message</button>
+				<button type='button' class="site-btn" id = 'send'>Send Message</button>
 			</form>
 		</div>
 	</section>
@@ -129,18 +128,29 @@
 	<script src="/static/js/slick.min.js"></script>
 	<script src="/static/js/main.js"></script>
 	<script type="text/javascript">
-			$(function(){
-				if({{msg}} == 1){
-					alert('请在邮箱查收您的二维码！');
-				}
-				if({{msg}} == 2){
-					alert('出错了!');
-				}
-				if({{msg}} == 3){
-					alert('授权码不正确!');
-				}
-
-			})
-</script>
+		$("#send").click(function () {
+			$.ajax({  
+				type: "POST",   //提交的方法
+				url:"/visit_handle/", //提交的地址  
+				data:$('#message').serialize(),// 序列化表单值  
+				async: false,  
+				error: function(request) {  //失败的话
+					 alert("Connection error");  
+				},  
+				success: function(data) {  //成功
+					if(data == 3){
+						alert('授权码不正确!');
+					}
+					if(data == 2){
+						alert('发送失败!');
+					}
+					if (data == 1){
+						alert('发送成功!');
+						document.getElementById("message").reset();
+					}
+				}  
+			});
+	       });
+	</script>
 	</body>
 </html>

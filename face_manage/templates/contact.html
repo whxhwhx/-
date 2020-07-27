@@ -89,12 +89,12 @@
 					</div>
 				</div>
 			</div>
-			<form class="contact__form">
-				<input type="text" placeholder="Name">
-				<input type="text" placeholder="Email">
-				<input type="text" placeholder="Phone">
-				<textarea placeholder="Message"></textarea>
-				<button class="site-btn">Send Message</button>
+			<form class="contact__form" id = 'message'>
+				<input type="text" name="Name" placeholder="Name">
+				<input type="text" name="Email" placeholder="Email">
+				<input type="text" name="Phone" placeholder="Phone">
+				<textarea name="Message"  placeholder="Message"></textarea>
+				<button type="button" class="site-btn" id="send">Send Message</button>
 			</form>
 		</div>
 	</section>
@@ -128,6 +128,24 @@
 	<script src="/static/js/jquery.slicknav.min.js"></script>
 	<script src="/static/js/slick.min.js"></script>
 	<script src="/static/js/main.js"></script>
+	<script type="text/javascript">
+	$("#send").click(function () {	
+		$.ajax({
+			type: "POST",   //提交的方法
+			url:"/message_handle/", //提交的地址  
+			data:$('#message').serialize(),// 序列化表单值  
+			async: false,  
+			error: function(request) {  //失败的话
+			alert("Connection error");  
+			},  
+			success: function(data) {  //成功
+			alert('留言发送成功');  //就将返回的数据显示出来
+			document.getElementById("message").reset();
+			},  
+		});
+       });
+	   
+	</script>
 
 	</body>
 </html>

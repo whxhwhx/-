@@ -10,6 +10,7 @@ import time
 import qrcode
 from django.core.mail import send_mail, send_mass_mail, EmailMultiAlternatives
 from email.header import make_header
+import json
 
 
 def index(request):
@@ -39,13 +40,27 @@ def logout(request):
 def login(request):
     return render(request, 'login.html')
 
+def message_handle(request):
+    post = request.POST
+    phone = post.get('Phone')
+    email = post.get('Email')
+    name = post.get('Name')
+    message = post.get('Message')
+    fja = '%s, %s, %s       %s' % (name, phone, email, message)
+    ret = send_mail('Message',fja , '2479759633@qq.com',
+                ['1516412031@qq.com'], fail_silently=False)
+    if ret:
+        return HttpResponse(1)
+    else:
+        return HttpResponse('error')
+
 
 def visit_handle(request):
     post = request.POST
     name = post.get('Name')
     phone = post.get('Phone')
     email = post.get('Email')
-    code = post.get('Code')
+    code = str(post.get('Code'))
     if code == '1122':
         key = str(int(time.time()))
         qr = qrcode.QRCode(
@@ -57,13 +72,13 @@ def visit_handle(request):
 
         qr.add_data(key)  # 向二维码添加数据
         qr.make(fit=True)
-        img = qr.make_image(fill_color="green", back_color="white")  # 更改QR的背景和绘画颜色
+        img = qr.make_image(fill_color="black", back_color="white")  # 更改QR的背景和绘画颜色
         img.save('/root/face/face_manage/face/QR.jpg')
 
         # email part
-        subject = '二维码'
+        subject = 'QR Code'
         text_content = '您的访问二维码'
-        html_content = '<p>请保存<strong>下方附件</strong>里的二维码</p>'
+        html_content = '<p>请保存<strong>附件</strong>里的二维码</p>'
         msg = EmailMultiAlternatives(subject, text_content, '2479759633@qq.com', [email])
         msg.attach_alternative(html_content, "text/html")
         # 发送附件
@@ -82,14 +97,11 @@ def visit_handle(request):
             tt.tkey = key
             tt.is_delete = False
             tt.save()
-            context = {'msg': 1, 'name': name, 'phone': phone, 'email': email}
+            return HttpResponse(1)
         else:
-            context = {'msg': 2, 'name': name, 'phone': phone, 'email': email}
-
+            return HttpResponse(2)
     else:
-        context = {'msg': 3, 'name': name, 'phone': phone, 'email': email}
-    return render(request, 'temporary_visitor.html', context)
-
+        return HttpResponse(3)
 
 def login_handle(request):
     post = request.POST

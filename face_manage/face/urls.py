@@ -17,4 +17,6 @@ urlpatterns = [
     url(r'^contact/', views.contact),
     url(r'^temporary/', views.temporary_origin),
     url(r'visit_handle/', views.visit_handle),
+    url(r'message_handle/', views.message_handle),
+
 ]
