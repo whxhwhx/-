@@ -120,7 +120,7 @@ EMAIL_PORT = 465
 # 设置发件人邮箱
 EMAIL_HOST_USER = '2479759633@qq.com'
 # 设置发件人 授权码
-EMAIL_HOST_PASSWORD = 'vdtzyvgapswddjha'
+EMAIL_HOST_PASSWORD = 'xstylcyhpmzqeaij'
 # 设置是否启用安全链接
 # EMAIL_USER_TLS = True
 EMAIL_USE_TLS = False         # 发送的模式
